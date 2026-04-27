@@ -1,0 +1,20 @@
+on: [push]
+
+jobs:
+  test:
+    runs-on: ubuntu-latest
+
+    steps:
+    - name: Checkout code
+      run: |
+        git clone https://github.com/yasin-khadem/ci-cd-test.git
+        mv ci-cd-test/{.,}* .
+
+    - name: Install Python and pip
+      run: sudo apt-get update && sudo apt-get install -y python3 python3-pip
+
+    - name: Install depencies
+      run: pip install -r requirements.txt
+
+    - name: Run tests
+      run: pytest test.py
