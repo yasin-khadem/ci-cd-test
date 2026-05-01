@@ -1,20 +1,44 @@
 on: [push]
 
 jobs:
-  test:
+  test-python:
     runs-on: ubuntu-latest
+    defaults:
+      run:
+        working-directory: py
 
     steps:
     - name: Checkout code
-      run: |
-        git clone https://github.com/yasin-khadem/ci-cd-test.git
-        mv ci-cd-test/{.,}* .
-
+      uses: actions/checkout@v4
+    
     - name: Install Python and pip
-      run: sudo apt-get update && sudo apt-get install -y python3 python3-pip
+      uses: actions/setup-python@v4
+      with:
+        python-version: '3.11'
 
     - name: Install depencies
       run: pip install -r requirements.txt
-
+    
     - name: Run tests
       run: pytest test.py
+  
+  test-js:
+    runs-on: ubuntu-latest
+    defaults:
+      run:
+        working-directory: node
+
+    steps:
+    - name: Checkout code
+      uses: actions/checkout@v4
+      
+    - name: Setup Node.js
+      uses: actions/setup-node@v4
+      with:
+        node-version: '18'
+
+    - name: Install dependencies
+      run: npm install
+
+    - name: Run tests
+      run: npm test

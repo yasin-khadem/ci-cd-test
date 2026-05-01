@@ -1,0 +1,19 @@
+{
+  "name": "node-test",
+  "version": "1.0.0",
+  "main": "index.js",
+  "scripts": {
+    "test": "node test.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/yasin-khadem/ci-cd-test.git"
+  },
+  "author": "yasin khadem",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/yasin-khadem/ci-cd-test/issues"
+  },
+  "homepage": "https://github.com/yasin-khadem/ci-cd-test#readme",
+  "description": ""
+}
