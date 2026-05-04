@@ -1,0 +1,19 @@
+name: PRINTING WORKFLOW
+
+on:
+  create:
+    tags:
+      - '*'
+
+jobs:
+  print-variables:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Print actions github builtin variables
+        env:
+          GITHUB_CONTEXT: ${{ toJSON(github.event) }}
+        run: echo "$GITHUB_CONTEXT"
+
+      - name: no name
+        if: ${{ github.event.ref_type == 'tag' }}
+        run: echo ${{ github.event.ref_type }}
