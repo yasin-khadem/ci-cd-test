@@ -1,3 +1,4 @@
 py/venv
+node/node_modules
 __pycache__
 .pytest_cache

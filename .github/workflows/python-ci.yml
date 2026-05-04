@@ -16,8 +16,20 @@ jobs:
       with:
         python-version: '3.11'
 
+    - name: Cache pip
+      uses: actions/cache@v4
+      with:
+        path: |
+          ~/.cache
+          pip
+        key: ${{ runner.os }}-pip-${{ hashFiles('requirements.txt') }}
+        restore-keys: ${{ runner.os }}-pip-
+
     - name: Install depencies
       run: pip install -r requirements.txt
+
+    - name: Run lint
+      run: pylint python/*.py
     
     - name: Run tests
       run: pytest test.py
