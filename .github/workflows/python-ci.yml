@@ -66,6 +66,6 @@ jobs:
         with:
           name: python_hello_world_linux_builds
           path: |
-            dist_x86_64/python_hello_world_x86_64.out
-            dist_arm64/python_hello_world_arm_64.out
+            py/dist_x86_64/python_hello_world_x86_64.out
+            py/dist_arm64/python_hello_world_arm_64.out
           retention-days: 90
