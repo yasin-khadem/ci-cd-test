@@ -59,7 +59,7 @@ jobs:
         run: pyinstaller --onefile --distpath dist_x86_64 --target-architecture x86_64 --name python_hello_world_x86_64.out main.py
 
       - name: Build for arm64
-        run: pyinstaller --onefile --distpath dist_arm64 --target-architecture arm64 --name python_hello_world_arm_64.out python/main.py
+        run: pyinstaller --onefile --distpath dist_arm64 --target-architecture arm64 --name python_hello_world_arm_64.out main.py
 
       - name: Upload artifacts
         uses: actions/upload-artifact@v4
